@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,9 +29,14 @@ class Langage
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Projet", inversedBy="langages")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Projet", mappedBy="langages")
      */
-    private $projet;
+    private $projets;
+
+    public function __construct()
+    {
+        $this->projets = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,14 +67,30 @@ class Langage
         return $this;
     }
 
-    public function getProjet(): ?Projet
+    /**
+     * @return Collection|Projet[]
+     */
+    public function getProjets(): Collection
     {
-        return $this->projet;
+        return $this->projets;
     }
 
-    public function setProjet(?Projet $projet): self
+    public function addProjet(Projet $projet): self
     {
-        $this->projet = $projet;
+        if (!$this->projets->contains($projet)) {
+            $this->projets[] = $projet;
+            $projet->addLangage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProjet(Projet $projet): self
+    {
+        if ($this->projets->contains($projet)) {
+            $this->projets->removeElement($projet);
+            $projet->removeLangage($this);
+        }
 
         return $this;
     }

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191205154653 extends AbstractMigration
+final class Version20191206141047 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,9 +22,10 @@ final class Version20191205154653 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'sqlite', 'Migration can only be executed safely on \'sqlite\'.');
 
-        $this->addSql('CREATE TABLE langage (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, type VARCHAR(255) NOT NULL, projet_id INTEGER DEFAULT NULL)');
+        $this->addSql('CREATE TABLE langage (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, type VARCHAR(255) NOT NULL)');
         $this->addSql('CREATE TABLE projet (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, liens CLOB NOT NULL --(DC2Type:array)
         )');
+        $this->addSql('CREATE TABLE projet_langage (projet_id INTEGER NOT NULL, langage_id INTEGER NOT NULL, PRIMARY KEY(projet_id, langage_id))');
     }
 
     public function down(Schema $schema) : void
@@ -34,5 +35,6 @@ final class Version20191205154653 extends AbstractMigration
 
         $this->addSql('DROP TABLE langage');
         $this->addSql('DROP TABLE projet');
+        $this->addSql('DROP TABLE projet_langage');
     }
 }

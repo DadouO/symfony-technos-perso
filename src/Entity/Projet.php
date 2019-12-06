@@ -29,7 +29,7 @@ class Projet
     private $liens = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Langage", mappedBy="projet")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Langage", inversedBy="projets")
      */
     private $langages;
 
@@ -79,7 +79,6 @@ class Projet
     {
         if (!$this->langages->contains($langage)) {
             $this->langages[] = $langage;
-            $langage->setProjet($this);
         }
 
         return $this;
@@ -89,10 +88,6 @@ class Projet
     {
         if ($this->langages->contains($langage)) {
             $this->langages->removeElement($langage);
-            // set the owning side to null (unless already changed)
-            if ($langage->getProjet() === $this) {
-                $langage->setProjet(null);
-            }
         }
 
         return $this;

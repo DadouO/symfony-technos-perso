@@ -67,13 +67,14 @@ class AppFixtures extends Fixture
             $langage->setType($type);
     
             if($nom=="node.js"){
-                $langage->setProjet($p1);
+                $langage->addProjet($p1);
+                $langage->addProjet($p3);
             }
             if($nom=="Python"){
-                $langage->setProjet($p2);
+                $langage->addProjet($p2);
             }
             if($nom=="PHP"){
-                $langage->setProjet($p4);
+                $langage->addProjet($p4);
             }
             $m->persist($langage);
             
@@ -89,10 +90,10 @@ class AppFixtures extends Fixture
             $langage->setType($type);
     
             if($nom=="Angular 8"){
-                $langage->setProjet($p1);
+                $langage->addProjet($p1);
             }
             if($nom=="React"){
-                $langage->setProjet($p3);
+                $langage->addProjet($p3);
             }
             $m->persist($langage);
             
@@ -108,10 +109,11 @@ class AppFixtures extends Fixture
             $langage->setType($type);
 
             if($nom=="MongoDB"){
-                $langage->setProjet($p1);
+                $langage->addProjet($p1);
+                $langage->addProjet($p3);
             }
             if($nom=="SPARQL"){
-                $langage->setProjet($p2);
+                $langage->addProjet($p2);
             }
             $m->persist($langage);
             
