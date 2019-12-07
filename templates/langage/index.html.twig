@@ -1,0 +1,41 @@
+{# {% extends 'home/index.html.twig' %} #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LangageController!{% endblock %}
+
+{% block body %}
+
+<div id="back">
+<h2>Backend</h2>
+{% for l in langages  %}
+{{include('langage/langageBlock.html.twig',{kind:"Backend",type:l.type, nom:l.nom
+   })}}
+{% endfor %}
+
+</div>
+<div id="front">
+<h2>Frontend</h2>
+{% for l in langages  %}
+{{include('langage/langageBlock.html.twig',{kind:"Frontend",type:l.type, nom:l.nom
+   })}}
+{% endfor %}
+
+</div>
+<div id="bd">
+<h2>Base de données</h2>
+{% for l in langages  %}
+{{include('langage/langageBlock.html.twig',{kind:"Base de données",type:l.type, nom:l.nom
+   })}}
+{% endfor %}
+
+</div>
+
+{# <div id="back">
+{% for l in langages  %}
+{%if l.type == "Backend" %}
+    <h2>{{l.nom}}</h2>
+    {% endif %}
+{% endfor %}
+
+</div> #}
+{% endblock %}

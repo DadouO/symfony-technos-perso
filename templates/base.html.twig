@@ -3,9 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}{{ encore_entry_link_tags('globalStyle') }}{% endblock %}
     </head>
     <body>
+    
+    <div id="presentation">
+    {# <img src="https://steemitimages.com/DQmSu3HUd9XQa8WLvUyTN5qvuuT3C2W5qZmPZQghDctmB9A/meme.jpg" alt="me">   #}
+    <h1>Darlène Bechtel</h1>
+    <pre><p>Lorsqu'on s'occupe d'informatique il faut faire comme les canards... 
+    Paraître calme en surface et pédaler comme un forcené par en dessous.
+                                                        Richard Lallement</p></pre>
+
+    </div>
+    <div id="menu"><span>
+    <pre><a href="/home">Home</a>    <a href="/langage">Technos préférées</a>    <a href="/projet">Projets FullStack</a>
+     </pre>
+    </span>
+    </div>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

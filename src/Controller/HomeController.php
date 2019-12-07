@@ -20,28 +20,6 @@ class HomeController extends AbstractController
         $langageRepo = $entityManager->getRepository(Langage::class);
         $projet = $projetRepo->findAll();
 
-        // if(empty($projet)){
-            // $p1 = new Projet();
-            // $p1->setNom("Stack MEAN");
-            // $p1->setLiens(array("https://github.com/DadouO/node-back-sf-store","https://github.com/DadouO/angular-sf-store"));
-            // $n = $langageRepo->findOneBy(array('nom'=>'node.js'));
-            // $a = $langageRepo->findOneBy(array('nom'=>'Angular 8'));
-            // $p1->addLangage($n);
-            // $p1->addLangage($a);
-
-
-            // $entityManager->persist($p1);
-
-            // $entityManager->flush();
-        // }
-        // $entite = $langageRepo->find(1);
-        // $entityManager->remove($entite);
-        // $entityManager->flush();
-
-        // $entite = $projetRepo->find(1);
-        // $entityManager->remove($entite);
-        // $entityManager->flush();
-
         return $this->render('home/index.html.twig', [
             'projets' => $projetRepo->findAll(),
         ]);
