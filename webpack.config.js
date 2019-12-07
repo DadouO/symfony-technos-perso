@@ -25,6 +25,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addStyleEntry('globalStyle', './assets/global/import.scss')
+    .addStyleEntry('langageStyle', './assets/composant/langage/import.scss')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

@@ -3,8 +3,12 @@
 
 {% block title %}Hello LangageController!{% endblock %}
 
-{% block body %}
+{%block stylesheets %}{{ encore_entry_link_tags('globalStyle') }}
+{{encore_entry_link_tags('langageStyle')}}
+{%endblock%}
 
+{% block body %}
+<div class="flex-container">
 <div id="back">
 <h2>Backend</h2>
 {% for l in langages  %}
@@ -29,7 +33,7 @@
 {% endfor %}
 
 </div>
-
+</div>
 {# <div id="back">
 {% for l in langages  %}
 {%if l.type == "Backend" %}
