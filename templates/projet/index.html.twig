@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjetController!{% endblock %}
+{% block title %}Projets FullStack{% endblock %}
+
+{%block stylesheets %}{{ encore_entry_link_tags('globalStyle') }}
+{{encore_entry_link_tags('projetStyle')}}
+{%endblock%}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="projet-container">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% for p in projets %}
+<div class="projet">
+    <h1>{{p.nom}}</h1>
+    {% for l in p.liens %}
+    <a href={{l}}>{{l}}</a></br>
+    {% endfor %}
+    Nombre de langages :{{p.langages|length}}
+    </br>
+    </div>
+{% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/dadou/sitePerso/src/Controller/ProjetController.php'|file_link(0) }}">src/Controller/ProjetController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/dadou/sitePerso/templates/projet/index.html.twig'|file_link(0) }}">templates/projet/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}
