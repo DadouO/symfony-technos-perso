@@ -31,13 +31,18 @@ body {
             font-family:"Verdana",sans-serif;
         }
     }
+    #space{
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+    }
 
     #footer{
         background-color:#001f3f;
         color: #39CCCC;
         font-size:large;
         font-weight: bold;
-        padding:2%;
+        padding:1%;
         font-family:"Verdana",sans-serif;
         justify-content: center;
         position: fixed;

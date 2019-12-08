@@ -63,7 +63,6 @@ Class dataService{
         return $this;
     }
 
-    // public function getEntities(): Entity 
     public function getEntities()
     {
         if($this->getData() == "langage") {

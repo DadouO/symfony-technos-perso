@@ -10,32 +10,12 @@ use Doctrine\Common\Persistence\ObjectManager;
 class AppFixtures extends Fixture
 {
 
-    // function tab(array $arr, String $t, ObjectManager $m){
-    //     for($count = 0; $count<count($arr); $count++)
-    //     {
-    //     $nom = $arr[$count];
-    //     $type= $t;
-
-    //     $langage = new langage();
-    //     $langage->setNom($nom);
-    //     $langage->setType($type);
-
-    //     $m->persist($langage);
-        
-    //     }
-    // }
-
     public function load(ObjectManager $m)
     {
 
         $back = array("node.js", "Java", "Python", "PHP", "Kotlin");
         $front=array("Angular 8", "React", "JavaScript", "HTML5", "CSS3");
         $bd=array("MYSQL","Oracle","PL/SQL","SPARQL","MongoDB");
-        // $pnom=array()
-        // https://github.com/claimskg/claimskg-statistical-observatory
-        // tab($back,"Backend");
-        // tab($front,"Frontend");
-        // tab($bd,"Base de données");
 
         $p1 = new Projet();
         $p1->setNom("Stack MEAN");
@@ -118,9 +98,6 @@ class AppFixtures extends Fixture
             $m->persist($langage);
             
             }
-
-          
-            // $p1
 
         $m->flush();
     }
