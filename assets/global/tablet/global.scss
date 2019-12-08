@@ -6,6 +6,7 @@
 }
 body {
     margin: 0%;
+    position: relative;
     #menu {
         background-color:#001f3f;
         font-weight: bold;
@@ -29,6 +30,20 @@ body {
         h1{
             font-family:"Verdana",sans-serif;
         }
+    }
+
+    #footer{
+        background-color:#001f3f;
+        color: #39CCCC;
+        font-size:large;
+        font-weight: bold;
+        padding:2%;
+        font-family:"Verdana",sans-serif;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        bottom: 0;
     }
 
 }

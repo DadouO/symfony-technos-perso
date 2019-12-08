@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Projet;
 use App\Entity\Langage;
+use App\Entity\Meetups;
 use App\Repository\ProjetRepository;
 use App\Repository\LangageRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -70,6 +71,9 @@ Class dataService{
         }
         if($this->getData() == "projet") {
             return $this->getEm()->getRepository(Projet::class)->findAll();
+        }
+        if($this->getData() == "meetup") {
+            return $this->getEm()->getRepository(Meetups::class)->findAll();
         }
     }
 

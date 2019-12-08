@@ -27,6 +27,7 @@ Encore
     .addStyleEntry('globalStyle', './assets/global/import.scss')
     .addStyleEntry('langageStyle', './assets/composant/langage/import.scss')
     .addStyleEntry('projetStyle', './assets/composant/projet/import.scss')
+    .addStyleEntry('meetupStyle', './assets/composant/meetup/import.scss')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

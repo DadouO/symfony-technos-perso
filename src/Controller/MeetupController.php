@@ -8,21 +8,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class LangageController extends AbstractController
+class MeetupController extends AbstractController
 {
     /**
-     * @Route("/", name="langage")
+     * @Route("/meetup", name="meetup")
      */
     public function index(dataService $dataser)
     {
+        $dataser->setData("meetup");
 
-        $dataser->setData("langage");
-
-
-        return $this->render('langage/index.html.twig', [
-            "langages" => $dataser->getEntities(),
-            'controller_name' => 'LangageController',
+        return $this->render('meetup/index.html.twig', [
+            "meetups" => $dataser->getEntities(),
+            'controller_name' => 'MeetupController',
         ]);
-     }
- 
+    }
 }
